@@ -1,7 +1,7 @@
 //#############################################################################
 // Controlling an RGB LED strip with a Wii nunchuck using an Arduino
 //
-// By Martin F. Falatic, 2013-01-20, http://www.falatic.com/
+// By Martin F. Falatic, created 2013-01-20, http://www.falatic.com/
 //
 // Using a Nyko Kama wireless Wii nunchuck to control a WS2811-based LED strip
 //
