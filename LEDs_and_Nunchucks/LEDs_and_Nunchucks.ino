@@ -1,7 +1,7 @@
 //#############################################################################
 // Controlling an RGB LED strip with a Wii nunchuck using an Arduino
 //
-// By Martin F. Falatic, http://www.falatic.com/
+// By Martin F. Falatic, 2013-01-20, http://www.falatic.com/
 //
 // Using a Nyko Kama wireless Wii nunchuck to control a WS2811-based LED strip
 //
@@ -391,10 +391,9 @@ void mode_color_bounce_fade(int idelay) {
         }
     }
 
-    int iR3 = adjacent_ccw(iR2); 
-    int iR2 = adjacent_ccw(iR1);
     int iR1 = adjacent_ccw(idex);
-    //  idex sits here in the model
+    int iR2 = adjacent_ccw(iR1);
+    int iR3 = adjacent_ccw(iR2); 
     int iL1 = adjacent_cw(idex);
     int iL2 = adjacent_cw(iL1);
     int iL3 = adjacent_cw(iL2);  
