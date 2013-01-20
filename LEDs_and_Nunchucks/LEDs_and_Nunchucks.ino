@@ -1,7 +1,7 @@
 //#############################################################################
 // Controlling an RGB LED strip with a Wii nunchuck using an Arduino
 //
-// By Martin F. Falatic, created 2013-01-20, http://www.falatic.com/
+// By Martin F. Falatic, http://www.falatic.com/
 //
 // Using a Nyko Kama wireless Wii nunchuck to control a WS2811-based LED strip
 //
@@ -28,8 +28,9 @@
 //     Used a common ground line with the Arduino, WS2811-strip_data-in -> Mega_pin-3
 //
 //#############################################################################
-// Revisions:
-//   2013-01-20 v1.00
+// Version history:
+//   2013-01-20 <MFF> Initial release
+//
 //#############################################################################
 
 #include <avr/wdt.h>   // watchdog timer functions
