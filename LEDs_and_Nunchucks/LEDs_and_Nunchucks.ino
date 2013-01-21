@@ -29,9 +29,12 @@
 //
 //#############################################################################
 // Version history:
-//   2013-01-20 <MFF> Initial release
+//   2013-01-20 <MFF> 1.0.0 Initial release
+//   2013-01-21 <MFF> 1.0.1 Bugfix (infinite loop)
 //
 //#############################################################################
+
+const char * VERSION = "1.0.1";
 
 #include <avr/wdt.h>   // watchdog timer functions
 #include <FastSPI_LED.h>
@@ -83,8 +86,7 @@ int ledsX[NUM_LEDS][3]; // ARRAY FOR COPYING WHATS IN THE LED STRIP CURRENTLY (F
 // I2C uses SCL and SDA
 #define WIICHUCKID 0x52
 #define USEFAKEPOWER false  // If true, use analog pins 2&3 as fake gnd & pwr
-#define ENC_VALUE  0x00    // No encryption
-//#define ENC_VALUE  0x17  // If we're using encrypted mode
+#define ENC_VALUE  0x00    // No encryption. Set to 0x17 if experimenting with encryption modes
 
 struct nunchuck_data_s { 
         uint16_t joy_x;
@@ -110,7 +112,9 @@ void setup()
 
     Serial.print("\n");
     Serial.print("===============================================================================\n");
-    Serial.print("-- Controlling an RGB LED strip with a Wii nunchuck\n");
+    Serial.print("-- Controlling an RGB LED strip with a Wii nunchuck, v");
+    Serial.print(VERSION);
+    Serial.print("\n");
     Serial.print("-- By Martin F. Falatic, http://www.Falatic.com/\n");
     Serial.print("===============================================================================\n");
     Serial.print("\n");
@@ -209,6 +213,7 @@ void cmd_unrecognized(const char *command) {
         Serial.print(" [");
         Serial.print(arg);
         Serial.print("]");
+        arg = sCmd.next();
     }
     Serial.print("\n");
 }
